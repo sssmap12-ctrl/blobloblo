@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Интерактивная визуальная новелла — чат-симулятор с Хамари">
+  <title>Чат с Хамари 💕</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ============ START SCREEN ============ -->
+    <div id="start-screen" class="screen active">
+      <div class="hearts-bg">
+        <span class="heart">💕</span>
+        <span class="heart">✨</span>
+        <span class="heart">💖</span>
+        <span class="heart">🌸</span>
+        <span class="heart">💗</span>
+        <span class="heart">💫</span>
+      </div>
+
+      <div class="start-content">
+        <div class="avatar-container">
+          <div class="avatar-ring">
+            <img src="photo/обычные/1.jpg" alt="Хамари" id="start-avatar">
+          </div>
+          <div class="online-badge"></div>
+        </div>
+
+        <h1 class="start-title">Хамари</h1>
+        <p class="start-subtitle">Привет! Я уже жду тебя...<br>Напиши своё имя, чтобы начать 💬</p>
+
+        <div class="name-input-group">
+          <input 
+            type="text" 
+            class="name-input" 
+            id="name-input" 
+            placeholder="Твоё имя..." 
+            maxlength="20" 
+            autocomplete="off"
+            autofocus
+          >
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-start-chat" disabled>
+            <span class="btn-icon">💬</span>
+            Начать чат
+          </button>
+          <button class="btn btn-secondary" id="btn-open-gallery">
+            <span class="btn-icon">📸</span>
+            Галерея фото
+          </button>
+          <a href="https://t.me/+sNwHTWHCAOxhYjIy" target="_blank" class="btn btn-tg" id="btn-telegram">
+            <span class="btn-icon">✈️</span>
+            Наш Telegram канал
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ CHAT SCREEN ============ -->
+    <div id="chat-screen" class="screen">
+      <div class="chat-header">
+        <button class="chat-back-btn" id="chat-back-btn" title="Назад">←</button>
+        <img src="photo/обычные/1.jpg" alt="Хамари" class="chat-avatar">
+        <div class="chat-user-info">
+          <div class="chat-user-name">Хамари</div>
+          <div class="chat-user-status">В сети</div>
+        </div>
+        <div class="chat-header-actions">
+          <a href="https://t.me/+sNwHTWHCAOxhYjIy" target="_blank" class="chat-header-btn tg-header-btn" id="btn-tg-chat" title="Telegram канал">✈️</a>
+          <button class="chat-header-btn" id="btn-gallery-from-chat" title="Галерея">🖼️</button>
+          <button class="chat-header-btn" id="btn-restart" title="Начать заново">🔄</button>
+        </div>
+      </div>
+
+      <div class="progress-bar-container">
+        <div class="progress-bar">
+          <div class="progress-bar-fill" id="progress-fill" style="width: 2%"></div>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-date"><span>Сегодня</span></div>
+      </div>
+
+      <div class="choices-panel hidden" id="choices-panel"></div>
+    </div>
+
+    <!-- ============ GALLERY SCREEN ============ -->
+    <div id="gallery-screen" class="screen">
+      <div class="gallery-header">
+        <button class="chat-back-btn" id="gallery-back-btn" title="Назад">←</button>
+        <h2 class="gallery-title">Галерея</h2>
+        <div class="gallery-counter">
+          <span id="gallery-unlocked">0</span> / <span id="gallery-total">21</span>
+        </div>
+      </div>
+
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="easy">Обычные</button>
+        <button class="filter-btn" data-filter="medium">Средние</button>
+        <button class="filter-btn" data-filter="hard">Хард 🔥</button>
+        <button class="filter-btn" data-filter="unlocked">Открытые ✅</button>
+      </div>
+
+      <a href="https://t.me/+sNwHTWHCAOxhYjIy" target="_blank" class="gallery-tg-banner">
+        <span class="tg-banner-icon">🔞</span>
+        <div class="tg-banner-content">
+          <div class="tg-banner-title">Секретный Telegram</div>
+          <div class="tg-banner-sub">Эксклюзивный контент и горячие фото здесь! 🔥</div>
+        </div>
+      </a>
+
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </div>
+
+  </div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <img src="" alt="" id="lightbox-img">
+    <div class="lightbox-info">
+      <div class="lightbox-name" id="lightbox-name"></div>
+      <div class="lightbox-tier" id="lightbox-tier"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/story.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/gallery.js"></script>
+
+</body>
+</html>
