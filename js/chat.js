@@ -292,9 +292,15 @@ const Chat = {
   },
 
   scrollToBottom() {
-    requestAnimationFrame(() => {
-      this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
-    });
+    const scroll = () => {
+      if (this.messagesContainer) {
+        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+      }
+    };
+    scroll();
+    requestAnimationFrame(scroll);
+    setTimeout(scroll, 50);
+    setTimeout(scroll, 150);
   },
 
   getCurrentTime() {
